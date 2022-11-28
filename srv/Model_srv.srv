@@ -1,0 +1,4 @@
+bool detect_now
+---
+bool success
+geometry_msgs/Point[] block_at_frame

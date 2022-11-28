@@ -1,0 +1,5 @@
+classes = 5
+train  = /home/icmems/Documents/110033627/yolov4-tiny/data/train.txt
+valid  = /home/icmems/Documents/110033627/yolov4-tiny/data/valid.txt
+names  = /home/shark/Downloads/YOLOv4-tiny/data/block.names
+backup = /home/icmems/Documents/110033627/yolov4-tiny/backup
