@@ -20,7 +20,6 @@ def getObjectPts(req):
         
         responseObjPts.block_at_frame.append(tempPosition)
         
-    print(responseObjPts.block_at_frame)
     
     return responseObjPts
     

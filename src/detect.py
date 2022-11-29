@@ -24,11 +24,8 @@ def detect_block() :
     cam = cv.VideoCapture(0)
 
     check, img = cam.read()
-    img = cv.imread(filename + '/example.png') # Put the Picture that you want to detect blocks
 
     classes, scores, boxes = model.detect(img, Conf_threshold, NMS_threshold)
-
-    print(img.shape[0] , img.shape[1])
     
     tel_position = []
 
