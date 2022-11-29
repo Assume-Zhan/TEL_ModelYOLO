@@ -21,7 +21,7 @@ def detect_block() :
     model = cv.dnn_DetectionModel(net)
     model.setInputParams(size=(416, 416), scale=1/255, swapRB=True)
 
-    cam = cv.VideoCapture(2)
+    cam = cv.VideoCapture(0)
 
     check, img = cam.read()
 
@@ -39,10 +39,7 @@ def detect_block() :
         tel_position.append([box[0] + box[2] / 2, box[1] + box[3] / 2])
         
         print(label, box) # (x, y, width, height)
-        pred_img = cv.rectangle(img, box, color, 1)
-        pred_img = cv.putText(pred_img, label, (box[0], box[1]-10), cv.FONT_HERSHEY_COMPLEX, 0.3, color, 1)
-    
-    cv.imwrite(filename + '/prediction.jpeg', pred_img)
+        
     
     return tel_position
     
