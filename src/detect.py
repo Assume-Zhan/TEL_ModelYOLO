@@ -24,10 +24,8 @@ def detect_block() :
     cam = cv.VideoCapture(2)
 
     check, img = cam.read()
-    
-    classes, scores, boxes = model.detect(img, Conf_threshold, NMS_threshold)
 
-    print(img.shape[0] , img.shape[1])
+    classes, scores, boxes = model.detect(img, Conf_threshold, NMS_threshold)
     
     tel_position = []
 
