@@ -21,11 +21,10 @@ def detect_block() :
     model = cv.dnn_DetectionModel(net)
     model.setInputParams(size=(416, 416), scale=1/255, swapRB=True)
 
-    cam = cv.VideoCapture(0)
+    cam = cv.VideoCapture(2)
 
     check, img = cam.read()
-    img = cv.imread(filename + '/example.png') # Put the Picture that you want to detect blocks
-
+    
     classes, scores, boxes = model.detect(img, Conf_threshold, NMS_threshold)
 
     print(img.shape[0] , img.shape[1])
@@ -39,11 +38,13 @@ def detect_block() :
         if class_name[classid] == 'C' or class_name[classid] == 'F' :
             continue
         
-        tel_position.append([box[0], box[1]])
+        tel_position.append([box[0] + box[2] / 2, box[1] + box[3] / 2])
         
         print(label, box) # (x, y, width, height)
         pred_img = cv.rectangle(img, box, color, 1)
         pred_img = cv.putText(pred_img, label, (box[0], box[1]-10), cv.FONT_HERSHEY_COMPLEX, 0.3, color, 1)
+    
+    cv.imwrite(filename + '/prediction.jpeg', pred_img)
     
     return tel_position
     
